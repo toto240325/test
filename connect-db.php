@@ -1,33 +1,28 @@
 <?php
 
-if ($myhost = '192.168.0.147')
+if ($dbhost = '192.168.0.147')
 {
-
-$dbhost = '192.168.0.147';
 $dbuser = 'toto';
 $dbpass = 'Toto!';
-$mydb = 'test';
+$mydb = 'mydatabase';
 } 
-elseif ($myhost = 'p702')
+elseif ($dbhost = 'p702')
 {
-$dbhost = 'localhost';
 $dbuser = 'toto';
 $dbpass = 'Toto!';
-$mydb = 'test';
+$mydb = 'mydatabase';
 } 
-elseif ($myhost = 'aws ec2')
+elseif ($dbhost = 'aws ec2')
 {
-$dbhost = 'localhost';
 $dbuser = 'toto';
 $dbpass = 'Toto!';
-$mydb = 'test';
+$mydb = 'mydatabase';
 } 
-elseif ($myhost = 'local')
+elseif ($dbhost = 'local')
 {
-$dbhost = 'localhost:3036';
 $dbuser = 'root';
 $dbpass = 'Toto!';
-$mydb = 'mysql';
+$mydb = 'mydatabase';
 }	
 
 ?>
