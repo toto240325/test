@@ -29,14 +29,16 @@
 	}
 	
 	function getLastEvent() {
-
+		
+		global $dbhost;
+		include 'connect-db.php';
+		
 		$query = '
 		SELECT * FROM fgw
 		ORDER BY fgw_id DESC
 		LIMIT 1
 		';
 
-		include 'connect-db.php';
 		$conn = new mysqli($dbhost,$dbuser,$dbpass,$mydb);
 		if ($conn->connect_error) {
 			die("Connection failed: " . $conn->connect_error);
@@ -93,7 +95,6 @@
 	// Creating a new person called "boring 12345", who is 12345 years old ;-)
 	
 	function getLastFgw() {
-		global $myhost;
 		
 		$myfgw = null;
 		$query = '
@@ -102,9 +103,15 @@
 		LIMIT 1
 		';
 
-		//echo "test ".$myhost."\n";
+		//echo "test ".$dbhost."\n";
+		
+		global $dbhost;
 		include 'connect-db.php';
+		
 		$conn = new mysqli($dbhost,$dbuser,$dbpass,$mydb);
+		//echo "conn : ";
+		//var_dump($conn);
+		
 		if ($conn->connect_error) {
 			die("Connection failed: " . $conn->connect_error);
 		} 
@@ -136,9 +143,9 @@
 	//==========================================================================================================================
 	//==========================================================================================================================
 	
-	$myhost = "192.168.0.147"; 			
-	
-	if(isset($_GET['myhost'])) { $myhost = $_GET['myhost']; }
+	$dbhost = "192.168.0.147";
+	if(isset($_GET['dbhost'])) { $dbhost = $_GET['dbhost']; }
+	//echo "dbhost : ".$dbhost;		
 	
 	$currTime = _date("Y-m-d H:i:s", false, 'Europe/Paris');	
 	
